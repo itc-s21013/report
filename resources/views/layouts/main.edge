@@ -14,10 +14,19 @@
 
   <div class="my-3">&nbsp</div>
   <div style="width: 100%"
-       class="fixed-bottom bg-secondary p-1">
+       class="fixed-bottom bg-secondarundefinedy p-1">
     <p class="text-center text-white m-0">
       copyright 2022 Kondo-Takahiro.
     </p>
   </div>
+<header class="row">
+  <div class="col-3 d-flex align-item-end">
+    @if (session.get('code'))
+    <a href="{{ route('auth.logout') }}" class="badge bg-secondary">ログアウト</a>
+    @else
+    <a href="{{ route('auth.login.show') }}" class="badge bg-primary">ログイン</a>
+    @end
+  </div>
+</header>
 </body>
 </html>

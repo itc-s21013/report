@@ -20,13 +20,12 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/',async ({ view }) => {
-  const data = {
-    title:'AdonisJS Sample',
-    message:'これはサンプルで用意したページです。'
-  }
-  return view.render('welcome', data)
-})
-Route.get('/sample', 'SamplesController.index')
-Route.post('/sample', 'SamplesController.index_posted')
-Route.get('/sample/:id/:pass', 'SamplesController.index')
+
+Route.get('/', 'SamplesController.index')
+Route.get('/student', 'StudentsController.index')
+Route.get('/register', 'AuthController.registerShow').as('auth.register.show')
+Route.post('/register', 'AuthController.register').as('auth.register')
+Route.get('/login', 'AuthController.loginShow').as('auth.login.show')
+Route.post('/login', 'AuthController.login').as('auth.login')
+Route.get('/logout', 'AuthController.logout').as('auth.logout')
+

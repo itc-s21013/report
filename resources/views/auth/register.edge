@@ -1,0 +1,28 @@
+@layout('layouts/main')
+@set('title', '新規ユーザ登録')
+
+@section('main')
+<h1 class="display-6">{{ title }}</h1>
+<form action="{{ route('auth.register') }}" method="post" class="col-6 mb-4">
+  <div class="input-group mt-2">
+    <label for="student_code" class="input-group-text col-4">学籍番号</label>
+    <input type="text" name="student_code" id="student_code" class="form-control"
+           autocomplete="off" value="{{ flashMessages.get('student_code') ?? '' }}">
+  </div>
+  @if (flashMessages.has('errors.student_code'))
+  <div class="text-danger">{{ flashMessages.get('errors.student_code') }}</div>
+  @end
+
+  <div class="input-group mt-2">
+    <label for="student_name" class="input-group-text col-4">名前</label>
+    <input type="textl" name="student_name" id="student_name" class="form-control"
+           autocomplete="off" value="{{ flashMessages.get('student_name') ?? '' }}">
+  </div>
+  @if (flashMessages.has('errors.student_name'))
+  <div class="text-danger">{{ flashMessages.get('errors.student_name') }}</div>
+  @end
+
+  <button type="submit" class="btn btn-outline-success mt-3">登録</button>
+</form>
+@end
+

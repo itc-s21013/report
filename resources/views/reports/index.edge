@@ -1,0 +1,13 @@
+@layout('layouts/main')
+@set('title', title)
+
+@section('body')
+@if (session.get('code'))
+
+<a href="{{ route('absences.index.show')}}" class="btn btn-outline-primary">欠席届</a>
+<a href="{{ route('cerfiticate.index,show') }}"
+   class="btn btn-outline-primary">証明書申請</a>
+@else
+<p>{{ message }}</p>
+@end
+@end
