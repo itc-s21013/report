@@ -1,7 +1,7 @@
 @layout('layouts/main')
 @set('title', '新規ユーザ登録')
 
-@section('main')
+@section('body')
 <h1 class="display-6">{{ title }}</h1>
 <form action="{{ route('auth.register') }}" method="post" class="col-6 mb-4">
   <div class="input-group mt-2">
