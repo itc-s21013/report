@@ -9,19 +9,8 @@ export default class StudentsController {
     const data = {
       title: 'Sample',
       message: 'Lucid',
-      data:students
+      data: students
     }
     return ctx.view.render('student/index', data)
-  }
-  public async add(ctx: HttpContextContract) {
-    const data = {
-      title: 'Add',
-      message: 'Personの新規作成:'
-    }
-    return ctx.view.render('student/add', data)
-  }
-  public async add_posted(ctx: HttpContextContract) {
-    await Student.create(ctx.request.body())
-    return ctx.response.redirect('/student')
   }
 }

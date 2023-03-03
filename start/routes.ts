@@ -28,4 +28,6 @@ Route.post('/register', 'AuthController.register').as('auth.register')
 Route.get('/login', 'AuthController.loginShow').as('auth.login.show')
 Route.post('/login', 'AuthController.login').as('auth.login')
 Route.get('/logout', 'AuthController.logout').as('auth.logout')
-
+Route.get('/absences', 'AbsencesController.index').as('absences.index.show')
+Route.get('/absences/add', 'AbsencesController.add')
+Route.post('/absences/add', 'AbsencesController.add_posted')

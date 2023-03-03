@@ -1,0 +1,36 @@
+@layout('layouts/main')
+@set('title', title)
+
+@section('body')
+<p>{{message}}</p>
+<form method="post" action="/certificate/add">
+  <div class="mb-3">
+    <label for="certificate_of_enrollment" class="form-label">在籍証明書の枚数（200円/通）</label>
+    <input type="number" class="form-control" id="certificate_of_enrollment" name="certificate_of_enrollment">
+  </div>
+  <div class="mb-3">
+    <label for="transcript" class="form-label">成績証明書の枚数（200円/通）</label>
+    <input type="number" class="form-control" id="transcript" name="transcript">
+  </div>
+  <div class="mb-3">
+    <label for="attendance_certificate" class="form-label">出席証明書の枚数（200円/通）</label>
+    <input type="number" class="form-control" id="attendance_certificate" name="attendance_certificate">
+  </div>
+  <div class="mb-3">
+    <label for="certificate_of_expected_graduation" class="form-label">卒業見込証明書の枚数（200円/通）</label>
+    <input type="number" class="form-control" id="certificate_of_expected_graduation" name="certificate_of_expected_graduation">
+  </div>
+  <div class="mb-3">
+    <label for="graduation_certificate" class="form-label">卒業証明書の枚数（200円/通）</label>
+    <input type="number" class="form-control" id="graduation_certificate" name="graduation_certificate">
+  </div>
+  <div class="mb-3">
+    <label for="health_certificate" class="form-label">健康診断書の枚数（100円/通）</label>
+    <input type="number" class="form-control" id="health_certificate" name="health_certificate">
+  </div>
+  <button type="submit" class="btn btn-secondary">送信</button>
+</form>
+<div class="text-center">
+  <a href="/certificate">戻る</a>
+</div>
+@end

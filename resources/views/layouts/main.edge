@@ -3,24 +3,18 @@
 <head>
   <title>{{title}}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
 </head>
 <body class="container mt-2">
-  <h1 class="display-6 text-primary">
-    <strong>{{title}}</strong>
-  </h1>
-  <hr class="my-2">
 
-  @!section('body')
-
-  <div class="my-3">&nbsp</div>
-  <div style="width: 100%"
-       class="fixed-bottom bg-secondarundefinedy p-1">
-    <p class="text-center text-white m-0">
-      copyright 2022 Kondo-Takahiro.
-    </p>
-  </div>
 <header class="row">
-  <div class="col-3 d-flex align-item-end">
+  <div class="col-9 position-relative">
+    <h1 class="display-2 my-2 text text-primary">
+      <strong>{{title}}</strong>
+    </h1>
+    <a href="/" class="stretched-link"></a>
+  </div>
+  <div class="col-3 d-flex align-items-end">
     @if (session.get('code'))
     <a href="{{ route('auth.logout') }}" class="badge bg-secondary">ログアウト</a>
     @else
@@ -28,5 +22,18 @@
     @end
   </div>
 </header>
+<hr class="my-2 p-0">
+
+@!section('body')
+
+<footer>
+  <div class="m-4">&nbsp;</div>
+  <div class="fixed-bottom bg-primary p-2" style="width: 100%">
+    <h6 class="text-center text-white m-0">&copy; 2023 Takahiro, Kondo.</h6>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+@layout('layouts/main')
+@set('title', title)
+
+@section('body')
+<table class="table">
+  <thead>
+  <tr>
+    <th>申請ID</th>
+    <th>在籍証明書の枚数</th>
+    <th>成績証明書の枚数</th>
+    <th>出席証明書の枚数</th>
+    <th>卒業見込証明書の枚数</th>
+    <th>卒業証明書の枚数</th>
+    <th>健康診断書の枚数</th>
+    <th>申請日</th>
+    <th>発行予定日</th>
+    <th>合計枚数</th>
+    <th>合計金額</th>
+  </tr>
+  </thead>
+  @each(item in data)
+  <tr>
+    <td>{{item.certificate_of_enrollment}}</td>
+    <td>{{item.transcript}}</td>
+    <td>{{item.attendance_certificate}}</td>
+    <td>{{item.certificate_of_expected_graduation}}</td>
+    <td>{{item.graduation_certificate}}</td>
+    <td>{{item.health_certificate}}</td>
+    <td>{{item.created_at}}</td>
+    <td>{{item.scheduled_date}}</td>
+    <td>{{item.certificate_of_enrollment + item.transcript + item.attendance_certificate + item.certificate_of_expected_graduation + item.graduation_certificate + item.health_certificate}}</td>
+    <td>{{(item.certificate_of_enrollment * 200) + (item.transcript * 200) + (item.attendance_certificate * 200) + (item.certificate_of_expected_graduation * 200) + (item.graduation_certificate * 200) + (item.health_certificate * 100)}}</td>
+  </tr>
+  @end
+</table>
+<div class="text-center">
+  <a href="/certificate/add">証明書を追加</a>
+</div>
+@end

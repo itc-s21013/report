@@ -1,0 +1,46 @@
+@layout('layouts/main')
+@set('title', title)
+
+@section('body')
+<table class="table">
+  <thead>
+  <tr>
+    <th>届け出のID</th>
+    <th>届け出の種類名</th>
+    <th>理由</th>
+    <th>開始日</th>
+    <th>終了日</th>
+    <th>届け出日</th>
+    <th>学籍番号</th>
+    <th>名前</th>
+  </tr>
+  </thead>
+  @each(item in data)
+  <tr>
+    <td>{{item.id}}</td>
+    @if(item.kind == 1)
+    <td>欠席</td>
+    @elseif(item.kind == 2)
+    <td>就活欠席</td>
+    @elseif(item.kind == 3)
+    <td>遅刻</td>
+    @elseif(item.kind == 4)
+    <td>早退</td>
+    @end
+    <td>{{item.reason}}</td>
+    <td>{{item.startDate}}</td>
+    <td>{{item.endDate}}</td>
+    <td>{{item.createdAt}}</td>
+    <td>{{item.code}}</td>
+    <td>{{item.name}}</td>
+  </tr>
+  @end
+</table>
+<div class="text-center p-3">
+  <a href="/absences/add" class="btn btn-primary">
+    <h4>
+      届け出を追加
+    </h4>
+  </a>
+</div>
+@end

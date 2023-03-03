@@ -23,6 +23,7 @@ export default class AuthController {
       schema: StudentSchema,
     })
     console.log(data)
+    //下のエラーは無視していいです。
     const user = await Students.create(data)
     return response.redirect().toPath('/')
   }

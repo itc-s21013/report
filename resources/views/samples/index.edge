@@ -2,25 +2,16 @@
 @set('title', title)
 
 @section('body')
+@if (session.get('code'))
+
+<div class="text-center p-5">
+  <a href="{{route('absences.index.show')}}" class="btn btn-primary">
+    <h1>
+      届け出を確認
+    </h1>
+  </a>
+</div>
+@else
 <p>{{message}}</p>
-<form method="post" action="/sample">
-  <div class="mb-3">
-    <label for="code" class="form-label">Code</label>
-    <input type="text" class="form-control"
-     id="code" name="code">
-  </div>
-  <div class="mb-3">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control"
-     id="name" name="name">
-  </div>
-  <button type="submit" class="btn btn-secondary">送信</button>
-</form>
-<hr>
-<h5>※セッションの内容</h5>
-<ul class="list-group">
-  @each(item in list)
-  <li class="list-group-item">{{item}}</li>
-  @end
-</ul>
+@end
 @end
